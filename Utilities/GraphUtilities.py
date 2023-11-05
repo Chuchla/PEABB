@@ -13,10 +13,10 @@ class GraphUtilities():
                 adjacency_matrix.append(row)
         return adjacency_matrix
 
-    def IniReadGraph(self,input_files):
+    def ReadGraphsFromIni(self, input_files):
         graphs_table = []
         for i in range(len(input_files)):
-            graph = self.ReadGraph(input_files[i])
+            graph = self.ReadGraph(input_files[i][0])
             graphs_table.append(graph)
         return graphs_table
 

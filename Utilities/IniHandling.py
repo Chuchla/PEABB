@@ -2,7 +2,7 @@ import csv
 
 class IniHandling():
 
-    def ReadIni(self,file_path):
+    def GetFiles(self, file_path):
         with open(fr'{file_path}','r') as file:
             files = file.read().strip().split()
         output_file = files.pop()
