@@ -17,16 +17,17 @@ class GraphUtilities():
     def ReadGraphsFromIni(self, input_files):
         graphs_table = []
         for file_path in input_files:
-            extension = os.path.splitext(file_path)[1]
+            extension = os.path.splitext(file_path[0])[1]
             if extension == ".txt":
-                graph = self.ReadGraph(file_path)
+                graph = self.ReadGraph(file_path[0])
             elif extension == ".xml":
-                graph = self.read_tsp_xml(file_path)
+                graph = self.read_tsp_xml(file_path[0])
             elif extension == ".tsp":
-                graph = self.read_tsp_file(file_path)
+                graph = self.read_tsp_file(file_path[0])
             else:
                 raise ValueError(f"Nieobsługiwane rozszerzenie pliku: {extension}")
-            graphs_table.append(graph)
+            graphs_table.append((graph,file_path[1]))
+        return graphs_table
 
     def PrintGraph(self,graph):
         for i in range(len(graph)):

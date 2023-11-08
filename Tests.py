@@ -86,7 +86,7 @@ def generateOneTestDirected(vertecies_number,repetition_number):
     vertecies_number_table.append(len(graph))
     ini_handling.WriteCsv(fr"{output_file}", path_table, distance_table, time_table, vertecies_number_table)
 def generateInstancesUndirected(vertecies_number_start,vertecies_number_end, repetition_number):
-    output_file = input("Podaj nazwe pliku wyjsciowego csv: ")
+    #output_file = input("Podaj nazwe pliku wyjsciowego csv: ")
     graphs = []
     distance_table = []
     path_table = []
@@ -113,10 +113,10 @@ def generateInstancesUndirected(vertecies_number_start,vertecies_number_end, rep
         distance_table.append(minimum_lenght)
         path_table.append(minimum_path)
         vertecies_number_table.append(len(graph))
-    ini_handling.WriteCsv(fr"{output_file}",path_table,distance_table,time_table,vertecies_number_table)
+    ini_handling.WriteCsv(fr"nieskierowane_od_{vertecies_number_start}_do_{vertecies_number_end}.csv",path_table,distance_table,time_table,vertecies_number_table)
 
 def generateInstancesDirected(vertecies_number_start,vertecies_number_end, repetition_number):
-    output_file = input("Podaj nazwe pliku wyjsciowego csv: ")
+    #output_file = input("Podaj nazwe pliku wyjsciowego csv: ")
     graphs = []
     distance_table = []
     path_table = []
@@ -143,7 +143,7 @@ def generateInstancesDirected(vertecies_number_start,vertecies_number_end, repet
         distance_table.append(minimum_lenght)
         path_table.append(minimum_path)
         vertecies_number_table.append(len(graph))
-    ini_handling.WriteCsv(fr"{output_file}",path_table,distance_table,time_table,vertecies_number_table)
+    ini_handling.WriteCsv(fr"skierowane_od_{vertecies_number_start}_do_{vertecies_number_end}.csv",path_table,distance_table,time_table,vertecies_number_table)
 
 def iniTest():
     distance_table = []
@@ -152,7 +152,7 @@ def iniTest():
     vertecies_number_table = []
     file_path = input("Podaj nazwe pliku ini, z ktorego chcesz zczytać dane: ")
     input_files, output_file = ini_handling.GetFiles(fr'{file_path}')
-    graphs = graph_utilities.ReadGraph(input_files)
+    graphs = graph_utilities.ReadGraphsFromIni(input_files)
     for graph in graphs:
         print(f"Graf {len(graph[0])} wierzcholkow")
         total_time = 0
