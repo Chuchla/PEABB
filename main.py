@@ -1,5 +1,8 @@
 import Tests
+import Utilities.GraphUtilities
 
-Tests.generateInstancesUndirected(15,3)
+Tests.iniTest()
+
+
 
 
